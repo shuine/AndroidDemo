@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_address_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <FrameLayout 
+            android:id="@+id/layout_address_tab_container"
+             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </FrameLayout>        
+           <View 
+          style="@style/diverline"
+          android:layout_height="0.5dp"/>
+        <ListView
+            android:id="@+id/lv_address_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
+    </LinearLayout>
+    <com.xiaomi.shop2.widget.LoadingView
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center" />
+
+</RelativeLayout>

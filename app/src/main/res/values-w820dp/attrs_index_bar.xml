@@ -1,0 +1,8 @@
+<resources>
+    <declare-styleable name="IndexBar">
+        <attr name="android:textColor"/>
+        <attr name="android:textSize"/>
+        <attr name="paddingLeftRight" format="dimension"/>
+        <attr name="paddingTopBottom" format="dimension"/>
+    </declare-styleable>
+</resources>
