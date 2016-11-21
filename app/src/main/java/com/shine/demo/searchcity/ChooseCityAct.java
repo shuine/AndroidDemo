@@ -1,28 +1,20 @@
 package com.shine.demo.searchcity;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.FrameLayout;
-import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SectionIndexer;
@@ -31,14 +23,13 @@ import android.widget.TextView;
 
 import com.shine.demo.R;
 import com.shine.demo.adapter.BaseDataAdapter;
-import com.shine.demo.view.IndexBar;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 
-public class ChooseCityFragment extends Activity {
+public class ChooseCityAct extends Activity {
 
     public static int REQUEST_CODE_SEARCH = 1;
     private String gpsCity = "定位城市";

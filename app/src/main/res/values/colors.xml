@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- service detail -->
+    <color name="service_detail_status_finished_color">#35b258</color>
+    <color name="service_detail_status_unfinished_color">#ffB0B0B0</color>
+
 </resources>

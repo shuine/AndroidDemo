@@ -1,4 +1,4 @@
-package com.shine.demo.view;
+package com.shine.demo.searchcity;
 
 import android.content.Context;
 import android.content.res.TypedArray;
