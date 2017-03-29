@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 没有焦点时字体颜色 -->
+    <item android:drawable="@color/service_detail_status_unfinished_color"/>
+    <!--选中时的字体颜色  -->
+    <item android:drawable="@color/colorPrimary" android:state_selected="true" />
+    <!-- 非触摸模式下获得焦点并单击时的字体颜色 -->
+    <item android:drawable="@color/colorPrimary" android:state_focused="true" />
+    <item android:drawable="@color/colorPrimary" android:state_pressed="true"  />
+</selector>

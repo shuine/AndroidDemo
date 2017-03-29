@@ -7,12 +7,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.shine.demo.listact.ListAct;
+import com.shine.demo.scratch.ScrathActivity;
 import com.shine.demo.searchcity.ChooseCityAct;
 import com.shine.demo.statusbar.StatusBarAct;
+import com.shine.demo.viewpager.SampleActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private void initListView() {
 
         BaseListAdapter adapter = new BaseListAdapter(this);
+        ArrayAdapter arrayAdapter;
         mListView.setAdapter(adapter);
 
     }
@@ -41,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
         List<DData> params = new ArrayList<>();
         params.add(new DData("城市选择",ChooseCityAct.class));
         params.add(new DData("状态",StatusBarAct.class));
+        params.add(new DData("列表",ListAct.class));
+        params.add(new DData("分类",SampleActivity.class));
+        params.add(new DData("画画",ScrathActivity.class));
         return params;
 
     }
