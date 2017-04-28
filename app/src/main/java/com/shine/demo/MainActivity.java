@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.shine.demo.dynamic.DynamicActivity;
 import com.shine.demo.listact.ListAct;
 import com.shine.demo.scratch.ScrathActivity;
 import com.shine.demo.searchcity.ChooseCityAct;
@@ -19,6 +21,9 @@ import com.shine.demo.statusbar.StatusBarAct;
 import com.shine.demo.viewpager.SampleActivity;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mListView = (ListView) findViewById(R.id.main_listview);
         initListView();
+        Log.e("shine","time:"+getFlashTimeTitleList(1491702152000l,1491615752000l));
+        Log.e("shine","time:"+getFlashTimeTitleList(1493516552000l,1493602952000l));
+        Log.e("shine","time:"+getFlashTimeTitleList(1493516552000l,1493775752000l));
     }
 
 
@@ -49,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         params.add(new DData("列表",ListAct.class));
         params.add(new DData("分类",SampleActivity.class));
         params.add(new DData("画画",ScrathActivity.class));
+        params.add(new DData("加载",DynamicActivity.class));
         return params;
 
     }
@@ -121,5 +130,47 @@ public class MainActivity extends AppCompatActivity {
             TextView title;
         }
 
+    }
+
+    public String getFlashTimeTitleList(long current, long data) {
+
+        if (current < 1) {
+            current = System.currentTimeMillis();
+        }
+        Date nowDate = new Date(current);
+        Calendar calendar = Calendar.getInstance();
+        String time;
+        Date date = new Date(data);
+        calendar.setTime(date);
+        int hours = calendar.get(Calendar.HOUR_OF_DAY);
+        if (hours < 10) {
+            time = "0" + hours;
+        } else {
+            time = String.valueOf(hours);
+        }
+        int min = calendar.get(Calendar.MINUTE);
+        if (min < 10) {
+            time += ":0" + min;
+        } else {
+            time += ":" + min;
+        }
+
+        Calendar nowCalendar = new GregorianCalendar();
+        nowCalendar.setTime(nowDate);
+        nowCalendar.add(Calendar.DAY_OF_MONTH,1);
+
+        if (date.getDate() > nowDate.getDate() || date.getMonth() > nowDate.getMonth()) {
+
+            //判断条件 月份相等,日期比现在时间大1
+            if ((date.getMonth() == nowDate.getMonth() && date.getDate() == (nowDate.getDate() + 1))
+                    ||((nowCalendar.get(Calendar.DAY_OF_MONTH) == calendar.get(Calendar.DAY_OF_MONTH))
+                    && nowCalendar.get(Calendar.MONTH) == calendar.get(Calendar.MONTH))) {
+                time = "明日 " + time;
+            } else {
+                time = date.getDate() + "日" + time;
+            }
+        }
+
+        return time;
     }
 }

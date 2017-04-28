@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.shine.demo">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,6 +22,15 @@
         <activity android:name=".listact.ListAct"/>
         <activity android:name=".viewpager.SampleActivity"/>
         <activity android:name=".scratch.ScrathActivity"/>
+        <activity android:name=".dynamic.DynamicActivity"/>
+        <activity android:name="tomato.pluginlib.ProxyActivity">
+            <intent-filter>
+                <action android:name="com.ryg.dynamicload.proxy.activity.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="tomato.pluginlib.TestAcitvity"/>
     </application>
 
 </manifest>

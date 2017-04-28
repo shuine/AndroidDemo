@@ -1,21 +1,18 @@
 apply plugin: 'com.android.application'
-repositories {
-    flatDir {
-        dirs 'libs'
-    }
-}
-
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '23.0.3'
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+
     defaultConfig {
-        applicationId "com.shine.demo"
-        minSdkVersion 16
+        applicationId "com.shine.plugina"
+        minSdkVersion 10
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
@@ -26,13 +23,11 @@ android {
 }
 
 dependencies {
-    //    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile(name: "mishopRedPacket", ext: "aar")
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile project(":pluginlib")
     testCompile 'junit:junit:4.12'
-    compile 'com.belerweb:pinyin4j:2.5.1'
-    compile 'com.alibaba:fastjson:1.2.20'
-    compile project(':pluginlib')
 }
