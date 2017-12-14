@@ -65,6 +65,9 @@ public class DynamicActivity extends Activity {
 
     private ArrayList<PluginItem> loadApkInfo() {
         File direct = new File(pluginFolder);
+        if(!direct.exists()){
+            direct.mkdirs();
+        }
         ArrayList<PluginItem> arrayList = new ArrayList<>();
         PackageManager pm = this.getPackageManager();
         if (direct.exists()) {
